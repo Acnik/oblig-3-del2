@@ -1,4 +1,4 @@
-package del2;
+package oppg1;
 
 import java.util.Scanner;
 
@@ -15,8 +15,15 @@ public class SnuTekst {
 	public static String baklengs(String tekst){
 		bokstavTeller++;
 		System.out.println("Antall tegn behandlet: " + bokstavTeller);
-		if ((tekst == null) || (tekst.length()<=1))
+		if ((tekst == null)||(tekst.length()==1))
 			return tekst;
-		return (baklengs(tekst.substring(1)) + tekst.charAt(0));
+		return (baklengs(tekst.substring(1), tekst.length()-1) + tekst.charAt(0));
+	}
+	public static String baklengs(String tekst, int siste){
+		bokstavTeller++;
+		System.out.println("Antall tegn behandlet: " + bokstavTeller);
+		if (siste == 1)
+			return tekst;
+		return (baklengs(tekst.substring(1), siste-1)+ tekst.charAt(0));
 	}
 }
